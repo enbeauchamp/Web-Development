@@ -1,0 +1,48 @@
+<!-- 
+Simple reaction tester in Javascript, HTML and CSS.
+Made by Eric Beauchamp
+-->
+
+<!doctype html>
+<html>
+<head>
+    <title>Reaction Tester</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+        
+        body {
+            font-family:Verdana, Geneva, sans-serif;
+        }
+        
+        #box {
+            width:200px;
+            height:200px;
+            visibility:hidden;
+            position:fixed;
+        }
+        
+        .bold{
+            font-weight:bold;
+        }
+    </style>
+
+</head>
+
+<body>
+    
+    <h1>Test your reaction!</h1>
+    
+    <p>Click on the boxes and circles as quickly as you can!</p>
+	
+    <p>Your time: <span class="bold" id="time">0</span>s</p>
+    <div id="box"></div>
+    
+	<script type="text/javascript" src="reactionScripts.js"> </script>
+
+</body>
+</html>
+

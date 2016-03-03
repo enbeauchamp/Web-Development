@@ -1,0 +1,419 @@
+<!-- Styling with CSS in a clone of the BBC homepage. -->
+
+<!doctype html>
+<html>
+<head>
+    <title>Eric's BBC</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style type="text/css">
+
+	body {
+		margin:0;
+		font-family:arial, Helmet, Freesans, sans-serif;
+		line-height:16px;
+	}
+
+	#topbar {
+		background-color:#790000;
+		width:100%;
+		height:40px;
+		color:white;
+
+	}
+
+	.fixedwidth {
+		width:1100px;
+		margin:0 auto;
+	}
+
+	#logodiv {
+		padding-top:5px;
+		float:left;
+		border-right:1px solid #990000;
+		padding-right:10px;
+		padding-left:12px;
+	}
+
+	#signindiv {
+		font-weight:bold;
+		padding:4px 80px 12px 20px;
+		font-size:0.9em;
+		border-right:1px solid #990000;
+		float:left;
+		width:100px;
+	}
+
+	#signindiv img {
+		position:relative;
+		top:3px;
+	}
+
+    #topmenudiv {
+        float:left;
+    }
+    
+    #topmenudiv ul {
+        margin:0;
+        padding:0;
+
+    }
+    
+    #topmenudiv li {
+        list-style:none;
+        font-weight:bold;
+        font-size:0.9em;
+        padding:10px 10px 12px 10px;
+        height:100%;
+		border-right:1px solid #990000;
+        float:left;
+    }
+    
+    #searchdiv {
+        float:left;
+        padding:7px 0 0 6px;
+    }
+    
+    #searchdiv input{
+        width:140px;
+        height:23px;
+        border:none;
+        font-weight:bold;
+        padding-left:8px;
+        background-image:url("images/magnify.png");
+        background-repeat:no-repeat;
+        background-position:right center;
+    }
+    
+    .break {
+        clear:both;
+    }
+    
+   	#newsbar {
+		background-color:#990000;
+		width:100%;
+		height:85px;
+		color:white;
+	}
+    
+    #newsbar p {
+        margin:0;
+        padding:0;
+        padding-top:20px;
+        float:left;
+        padding-left:10px;
+    }
+    
+    #newsheader {
+        font-size:2.5em;
+    }
+    
+    #uk {
+        font-size:0.7em;
+        padding-left:10px;
+    }
+    
+    #rss {
+        float:right;
+        padding-top:30px;
+        padding-right:85px;
+        font-size:80%;
+        font-weight:bold;
+    }
+    
+    #rss img {
+        height:14px;
+    }
+    
+    #newsmenu {
+        padding-left:12px;
+    }
+    
+    #newsmenu ul {
+    	background-color:#3E0C0D;
+        padding:7px 0 0 0;
+        width:100%;
+        height:21px;
+        position:relative;
+        top:-7px;
+        color:white;
+    }
+    
+    #newsmenu li {
+        list-style:none;
+        font-size:80%;
+        padding:0 5px 5px 5px;
+        float:left;
+        border-right:1px solid #990000;
+        background-color:none;
+        font-weight:bold;
+        height:10px;
+    }
+
+    .selected {
+        background-color:#EDEDED;
+        color:#505057;
+        height:18px !important;
+        position:relative;
+        top:-7px;
+        padding:6px 5px 4px 5px !important;
+    }
+    
+   	#content {
+        width:100%;
+		color:#505050;
+		font-size:0.8em;
+	}
+	
+	#date {
+	    position:relative;
+	    top:-20px;
+	    left:5px;
+	}
+	
+	h1 {
+   		color:#1F4F82;
+	    font-size:2.5em;
+	    position:relative;
+	    left:12px;
+	}
+	
+	.headlineimagine {
+    	float:left;
+    	position:relative;
+    	left:12px;
+    }
+    
+    .newsitem {
+        position:relative;
+        left:20px;
+        top:-20px;
+        width:340px;
+        float:left;
+        font-size:1.1em;
+    }
+    
+    .newsitem a {
+        color:#1f4f82;
+    }
+    
+    a {
+        text-decoration:none;
+    }    
+    
+    a:hover {
+        text-decoration:underline;
+    }
+    
+    .livelink {
+          background-image:url("images/live.png");
+          background-repeat:no-repeat;
+          background-position:left center;
+          background-size:13%;
+          padding-left:38px;
+    }
+    
+    .videolink {
+          background-image:url("images/video.png");
+          background-repeat:no-repeat;
+          background-position:left center;
+          padding-left:22px;
+    }
+    
+    .links {
+        position:relative;
+        top:-15px;
+        line-height:1.4em;
+    }
+    
+    #watchlisten{
+        background-color:#EEEEEE;
+        float:right;
+        width:338px;
+        position:relative;
+        top:-70px;
+    }
+    
+    h2 {
+        color:#545050;
+        margin:10px 0 10px 10px;
+        font-size:2em;
+    }
+    
+    .boxes {
+        float:right;
+        margin:15px 5px 0 0;
+    }
+    
+    .arrow {
+        float:left;
+    }
+    
+    .videoblock {
+        float:left;
+        background-color: #D1700E;
+        width:142px;
+        border-right:2px solid #EEEEEE;
+    }
+    
+    .videoblock a {
+        color:white;
+    }
+    
+    .videoblock p {
+        position:relative;
+        top:-20px;
+        height:20px;
+        margin:8px 10px 10px 10px;
+    }
+    
+    .live {
+        background-color:#F42924;
+        color:#FFF;
+        padding: 0 3px 0 3px;
+        margin-right:4px;
+        font-size:14px;
+        position:relative;
+        top:-3px;
+    
+    .watchlinks {
+        position:relative;
+        padding-bot:10px;
+    }
+    .watchlinks a {
+        padding: 0 0 10px 0;
+        color:white;
+    }
+    </style>    
+
+</head>
+
+<body>
+	
+	<div id="container">
+
+		<div id="topbar">
+			<div class="fixedwidth">
+
+				<div id="logodiv">
+					<img src="images/logo.png" />
+				</div>
+				
+				<div id="signindiv">
+					<img src="images/login.png" /> Sign In
+				</div>
+				
+				<div id="topmenudiv">
+				    <ul>
+				        <li>News</li>
+				        <li>Sports</li>
+				        <li>Weather</li>
+				        <li>Earth</li>
+				        <li>Future</li>
+				        <li>Shop</li>
+				        <li>TV</li>
+				        <li>Radio</li>
+				        <li>More...</li>
+				    </ul>
+				</div>			
+				
+				<div id="searchdiv">
+				    <input type="text" placeholder="Search" />
+				</div>
+			</div>
+		</div>
+
+        <div class="break"></div>
+        
+		<div id="newsbar">
+			<div class="fixedwidth">
+
+                <p id="newsheader">NEWS<span id="uk"> UK</span></p>
+                               
+                <div id="rss">
+                RSS <img src="images/rss.png" />
+                </div>
+                
+                <div class="break"></div>
+                
+                <div id="newsmenu">
+                
+                    <ul>
+                        <li>Home</li>
+                        <li>US & Canada</li>
+                        <li>Latin America</li>
+                        <li class="selected">UK</li>
+                        <li>Africa</li>
+                        <li>Asia</li>
+                        <li>Australia</li>
+                        <li>Europe</li>
+                        <li>Mid-East</li>
+                        <li>Business</li>
+                        <li>Health</li>
+                        <li>Sci/Environment</li>
+                        <li>Tech</li>
+                        <li>Entertainment</li>
+                        <li style="border-right:none">Video</li>
+                    </ul>
+                
+			</div>
+		</div>
+
+        <div class="break"></div>
+        
+		<div id="content">
+			<div class="fixedwidth">
+                
+                <p id="date"><strong>19 March 2015</strong> Last updated at 02:47 ET</p><br />
+                
+                <h1>Osborne draws election battle lines</h1>
+                
+               
+                <img class="headlineimagine" src="http://news.bbcimg.co.uk/media/images/81752000/jpg/_81752022_026375804-1.jpg" />
+                
+                <div class="newsitem">
+                <p>George Osborne draws the battle lines for the general election in seven weeks' time, after unveiling what he called a Budget for a "comeback country".</p>
+                
+                <p class="links">
+                <a class="livelink" href="http://www.bbc.com/news/live/uk-politics-31948861">Balls, Osborne & Budget reaction</a><br />
+                <a href="http://www.bbc.com/news/uk-politics-31928641">Key points: At-a-glance</a><br />
+                <a href="http://www.bbc.com/news/business-31951711">Peston: Famine followed by feast</a><br />
+                <a href="http://www.bbc.com/news/uk-politics-31948283">Analysis: Osborne wants you vote</a><br />
+                <a class="videolink" href="http://www.bbc.com/news/uk-politics-31945659">'Britain paying its way'</a><br />
+                <a class="videolink" href="http://www.bbc.com/news/uk-politics-31941851">'A budget people won't believe'</a></p>
+                </p>
+                </div>
+
+                <div id="watchlisten">
+                    <img src="images/boxes.png" class="boxes" />
+                    <h2>Watch/Listen</h2>
+                    
+                    <img src="images/larrow.png" class="arrow" />
+                    
+                    <div class="videoblock">
+                        <img src="images/video1.png" style="height:81px"/>
+                        <p><a href="http://news.bbcimg.co.uk/media/images/81752000/jpg/_81752820_81752725.jpg">Prince Charles due to meet Obama</a></p>                        
+                    </div>
+
+                    <div class="videoblock">
+                        <img src="images/video2.png" />
+                        <p><a href="http://news.bbcimg.co.uk/media/images/81752000/jpg/_81752820_81752725.jpg">Prince Charles due to meet Obama</a></p>                        
+                    </div>                  
+                    <img src="images/rarrow.png" class="arrow" />
+                    
+                    <div class="watchlinks">
+                    <p><span class="live">Live</span><a href="http://www.bbc.com/news/live/uk-politics-31948861">BBC News Channel</a></p>
+                    </div>
+                </div>
+                
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>
+

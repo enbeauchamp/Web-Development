@@ -1,0 +1,220 @@
+<!doctype html>
+<html>
+<head>
+    <title>jQuery UI</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+    <style>
+
+        body {
+            margin:0;
+            padding:0;
+            font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+        }
+        
+        body, html {
+            height:100%;
+            width:100%;
+        }
+        
+        #wrapper {
+            height:100%;
+        }
+        
+        #menuBar {
+            width:100%;
+            height:40px;
+            background-color:#d3d3d3;
+            border-bottom:1px solid grey;
+        }
+
+        #logo {
+            padding: 10px 0 0 20px;  
+            font-weight:bold;
+            float:left; 
+        }
+        
+        #buttonDiv {
+            float:right;
+            padding:5px 20px 0 0;
+        }
+        
+        #runButton {
+            font-size:130%;
+            border-radius:10px;
+            padding:0 10px;
+        }
+        
+        #toggles {
+            width:300px;
+            margin:0 auto;
+            padding:0px;
+            padding:5px;
+            
+            position:relative;
+            top:-17px;
+        }
+
+        #toggles ul {
+            border:1px solid grey;
+            border-radius:5px;
+            height:30px;
+
+        }
+        
+        #toggles li {
+            list-style:none;        
+            float:left;
+            border-right:1px solid grey;
+            height:20px;
+            padding:5px 10px;
+        }
+        
+        #toggles li:hover {
+            background-color:grey;
+        }        
+        
+        .clear {
+            clear:both;
+        }
+        
+        .codeContainer {
+            width:50%;
+            float:left;
+            position:relative;
+        }
+        
+        .codeContainer textarea {
+            width:100%;
+            height:100%;        
+            resize:none;
+            border:none;
+            border-right:1px solid grey;
+            font-family:monotype;
+            font-size:100%;
+            box-sizing:border-box;
+            padding:10px;
+        }
+        
+        .codeLabel {
+            position:absolute;
+            right:10px;
+            top:10px;
+            background-color:#FFF;
+            padding:4px;
+            border:1px solid grey;
+            border-radius:4px;
+        }
+        
+        #CSSContainer, #JSContainer {
+            display:none;
+        }
+        
+        iframe {
+            height:100%;
+            width:100%;
+            border:0;
+            border-left:1px solid grey;
+        }
+        
+        .selected {
+            background-color:grey !important;
+        }
+    </style>    
+
+    <script>
+
+    $(function() {
+    
+        var height=$( window ).height()-40;
+        $(".codeContainer").css("height", height+"px");
+
+        $(".selector").click(function() {
+        
+            $(this).toggleClass("selected");
+            
+            var activeDiv=$(this).html();
+            $("#"+activeDiv+"Container").toggle();
+            
+            var showingDivs = $(".codeContainer").filter( function() {
+                return($(this).css("display")!="none");
+            }).length;
+            
+            var width = 100/showingDivs;
+            $(".codeContainer").css("width", width+"%");
+        });
+        
+        $("#runButton").click( function() {
+            $("iframe").contents().find("html").html( '<style>'+$("#cssCode").val()+'</style>'+$("#htmlCode").val() );
+            
+            document.getElementById("resultFrame").contentWindow.eval($("#jsCode").val());
+        });
+    
+    });
+    </script>
+    
+</head>
+
+<body>
+
+    <div id="wrapper">
+    
+        <div id="menuBar">
+        
+            <div id="logo">
+            CodePlayer
+            </div>
+            
+            <div id="buttonDiv">
+                <button id="runButton">Run</button>
+            </div>
+        
+            <div id="toggles">
+                <ul>
+                    <li class="selector selected">HTML</li>
+                    <li class="selector">CSS</li>
+                    <li class="selector">JS</li>
+                    <li class="selector selected" style="border:none">Result</li>                
+                </ul>
+            </div>
+        
+        </div>
+
+        <div class="clear"></div>
+
+        <div class="codeContainer" id="HTMLContainer" >
+
+            <div class="codeLabel">HTML</div>
+            <textarea id="htmlCode"> <div id="test"></div> </textarea>
+
+        </div>
+        
+        <div class="codeContainer" id="CSSContainer" >
+
+            <div class="codeLabel">CSS</div>
+            <textarea id="cssCode">html {background-color:blue}</textarea>
+
+        </div>
+
+        <div class="codeContainer" id="JSContainer" >
+
+            <div class="codeLabel">JS</div>
+            <textarea id="jsCode"> document.getElementById("test").innerHTML="It's working!"; </textarea>
+
+        </div>
+
+        <div class="codeContainer" id="ResultContainer" >
+
+            <div class="codeLabel">Result</div>
+            <iframe id="resultFrame"></iframe>
+
+        </div>                    
+    </div>
+
+</body>
+</html>
